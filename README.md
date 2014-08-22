@@ -29,13 +29,17 @@ It is up to you to provide commands that make use of the file. See example below
 ## Example
 
 ```ruby
-asset = github_asset "berkshelf-api.tar.gz" do
+asset =error: could not create do
   repo "berkshelf/berkshelf-api"
   release "v1.2.1"
 end
 
-execute "Copy #{asset.asset_path} to output folder" do
-  command "cp #{asset.asset_path} #{node["myapp"]["outputfolder"]}"
+libarchive_file "berkshelf-api.tar.gz" do
+  path asset.asset_path
+  extract_to "/opt/berkshelf-api"
+  extract_options :no_overwrite
+
+  action :extract
 end
 
 ```
