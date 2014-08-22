@@ -29,7 +29,7 @@ It is up to you to provide commands that make use of the file. See example below
 ## Example
 
 ```ruby
-asset =error: could not create do
+asset = github_asset "berkshelf-api.tar.gz" do
   repo "berkshelf/berkshelf-api"
   release "v1.2.1"
 end
